@@ -38,4 +38,19 @@ body:hover .cursor-follower {
   cursor: none;
 }
 
-
+/* إخفاء الـ custom cursor على الشاشات الصغيرة (موبايل وتابلت) */
+@media (max-width: 1024px) {
+  .custom-cursor,
+  .cursor-follower {
+    display: none !important;
+  }
+  
+  /* إرجاع الـ cursor العادي */
+  * {
+    cursor: auto !important;
+  }
+  
+  a, button, [role="button"] {
+    cursor: pointer !important;
+  }
+}

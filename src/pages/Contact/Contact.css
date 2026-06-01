@@ -615,5 +615,9 @@
     padding: 1rem 1.2rem;
     font-size: 0.85rem;
   }
+  
+  /* إخفاء ScrollTube على الموبايل عشان مش بيشتغل كويس */
+  .scroll-tube-container {
+    display: none !important;
+  }
 }
-

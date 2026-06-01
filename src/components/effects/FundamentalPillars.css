@@ -105,6 +105,16 @@
 }
 
 @media (max-width: 768px) {
+  /* إخفاء الطيارة والـ airplane intro section على الموبايل */
+  .airplane-intro-section {
+    display: none !important;
+  }
+  
+  .pillar-airplane-svg,
+  .pillar-airplane {
+    display: none !important;
+  }
+  
   .pillar-stacked-card {
     height: auto;
     min-height: 50vh;

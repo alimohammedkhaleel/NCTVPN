@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import ImageWithPlaceholder from '../common/ImageWithPlaceholder';
 import './InfiniteMenu.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -77,10 +78,12 @@ export default function InfiniteMenu({ items, onItemClick, className = '' }) {
           >
             <div className="infinite-menu-img-container">
               {item.image && (
-                <img
+                <ImageWithPlaceholder
                   src={item.image}
                   alt={item.label}
                   className="infinite-menu-img"
+                  loading="lazy"
+                  aspectRatio="1/1"
                 />
               )}
             </div>

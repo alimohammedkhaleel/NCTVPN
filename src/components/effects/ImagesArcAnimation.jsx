@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import ImageWithPlaceholder from '../common/ImageWithPlaceholder';
 import './ImagesArcAnimation.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -97,7 +98,13 @@ export default function ImagesArcAnimation({ data = imagesData }) {
           {data.map((img) => (
             <div key={img.id} className="scroll-img-wrapper-outer">
               <div className="scroll-img-wrapper">
-                <img src={img.src} alt={img.title} className="scroll-img" />
+                <ImageWithPlaceholder
+                  src={img.src}
+                  alt={img.title}
+                  className="scroll-img"
+                  loading="lazy"
+                  aspectRatio="4/3"
+                />
               </div>
               <div className="mobile-img-info">
                 <div className="mobile-img-num">0{img.id}</div>

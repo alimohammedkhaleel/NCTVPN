@@ -13,29 +13,9 @@ const Navbar = () => {
     const navbarRef = useRef(null);
     const logoRef = useRef(null);
     const hamburgerRef = useRef(null);
-    const hasAnimated = useRef(false);
 
     useEffect(() => {
         if (!navbarRef.current || !logoRef.current) return;
-        
-        // Only run entrance animation once on initial mount
-        if (hasAnimated.current) {
-            // Ensure navbar is visible if animation already ran
-            gsap.set(navbarRef.current, { opacity: 1, y: 0, filter: 'blur(0px)' });
-            gsap.set(logoRef.current, { opacity: 1, x: 0, scale: 1 });
-            return;
-        }
-        
-        hasAnimated.current = true;
-
-        const tl = gsap.timeline();
-        gsap.set(navbarRef.current, { opacity: 0, y: -60, filter: 'blur(8px)' });
-        gsap.set(logoRef.current, { opacity: 0, x: -30, scale: 0.8 });
-        tl.to(navbarRef.current, {
-            opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.6, ease: 'power3.out',
-        }).to(logoRef.current, {
-            opacity: 1, x: 0, scale: 1, duration: 0.4, ease: 'power2.out',
-        }, '-=0.2');
     }, []);
 
     useEffect(() => {

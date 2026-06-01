@@ -24,7 +24,14 @@ const Home = () => {
     let ctx = gsap.context(() => {
       const tl = gsap.timeline();
 
-      // Navbar animation removed - handled by Navbar component itself
+      // 1. Navbar slides down creatively
+      const nav = document.querySelector('.navbar') || document.querySelector('nav');
+      if (nav) {
+        gsap.fromTo(nav, 
+          { y: -50, opacity: 0, scale: 0.95, filter: 'blur(10px)' }, 
+          { y: 0, opacity: 1, scale: 1, filter: 'blur(0px)', duration: 1.5, ease: 'elastic.out(1, 0.7)', delay: 0.5 }
+        );
+      }
 
       // 2. Glowing Spot (البقعة) expands behind the text
       const spot = heroRef.current.querySelector('.hero-glow-spot');

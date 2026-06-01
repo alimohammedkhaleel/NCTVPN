@@ -44,8 +44,8 @@
 
 .pillar-stacked-card {
   position: sticky;
-  /* زودنا opacity من 0.4 لـ 0.95 عشان الـ card تبقى غامقة وتخفي المحتوى اللي تحتها */
-  background: rgba(17, 17, 17, 0.95);
+  /* opacity: 1 عشان الـ card تبقى solid تماماً وتخفي المحتوى اللي تحتها 100% */
+  background: rgba(17, 17, 17, 1);
   /* شيلنا backdrop-filter عشان الكلام ميظهرش من تحت الـ card خالص */
   border-top: 2px solid rgba(250, 204, 21, 0.5);
   border-left: 1px solid rgba(250, 204, 21, 0.1);

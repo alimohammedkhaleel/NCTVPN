@@ -11,8 +11,8 @@
   # base = "."
 
 [build.environment]
-  # Node version
-  NODE_VERSION = "18"
+  # Node version (Vite 8 requires Node 20+)
+  NODE_VERSION = "20"
 
 # Redirect rules for SPA (Single Page Application)
 [[redirects]]

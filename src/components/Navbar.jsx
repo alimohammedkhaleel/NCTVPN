@@ -1,22 +1,28 @@
 import { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
-import { gsap } from 'gsap';
 import './Navbar.css';
 
 const Navbar = () => {
     const navigate = useNavigate();
+    const location = useLocation();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isCollapsed, setIsCollapsed] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const navbarRef = useRef(null);
-    const logoRef = useRef(null);
-    const hamburgerRef = useRef(null);
+
+    // الصفحات اللي عندها GSAP navbar animation — هتظهر الـ navbar بنفسها
+    const pagesWithNavAnimation = ['/', '/services'];
 
     useEffect(() => {
-        if (!navbarRef.current || !logoRef.current) return;
-    }, []);
+        if (!navbarRef.current) return;
+        const hasAnimation = pagesWithNavAnimation.includes(location.pathname);
+        if (!hasAnimation) {
+            // مفيش GSAP على الصفحة دي — نظهر الـ navbar فوراً
+            navbarRef.current.style.opacity = '1';
+        }
+    }, [location.pathname]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -34,9 +40,10 @@ const Navbar = () => {
         <nav
             className={`navbar ${isCollapsed ? 'collapsed' : ''} ${isScrolled ? 'scrolled' : ''}`}
             ref={navbarRef}
+            style={{ opacity: 0 }}
         >
             <div className="navbar-container">
-                <a href="/" className="logo" onClick={(e) => { e.preventDefault(); navigate('/'); }} ref={logoRef}>
+                <a href="/" className="logo" onClick={(e) => { e.preventDefault(); navigate('/'); }}>
                     <span className="logo-text">NCTU</span>
                 </a>
 
@@ -60,7 +67,6 @@ const Navbar = () => {
                 <button
                     className={`hamburger ${isMenuOpen ? 'open' : ''}`}
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    ref={hamburgerRef}
                     aria-label="Toggle menu"
                 >
                     <FontAwesomeIcon icon={isMenuOpen ? faTimes : faBars} className="hamburger-icon" />

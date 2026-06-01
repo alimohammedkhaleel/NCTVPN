@@ -2,8 +2,10 @@
   font-family: 'Poppins', 'Cairo', sans-serif;
   position: fixed;
   top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+  /* استخدام margin: auto بدل left:50% + translateX عشان نتجنب حركة يمين/شمال عند الـ transition */
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   width: 90%;
   max-width: 1200px;
   padding: 0.8rem 1.5rem;
@@ -13,26 +15,23 @@
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   z-index: 9999;
+  /* transform مش في الـ transition عشان GSAP بيتحكم فيه */
   transition: top 0.5s cubic-bezier(0.4, 0, 0.2, 1),
               width 0.5s cubic-bezier(0.4, 0, 0.2, 1),
               max-width 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-              left 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
               background 0.5s ease,
               padding 0.5s ease,
               border-radius 0.5s cubic-bezier(0.4, 0, 0.2, 1),
               box-shadow 0.5s ease,
-              border 0.5s ease;
+              border 0.5s ease,
+              opacity 0.5s ease;
   direction: rtl;
-  will-change: transform;
   opacity: 1;
   visibility: visible;
 }
 
 .navbar.scrolled {
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
   width: 100%;
   max-width: 100%;
   border-radius: 0;
@@ -62,8 +61,6 @@
 
 .navbar.collapsed {
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
   width: 100%;
   max-width: 100%;
   border-radius: 0;
@@ -345,9 +342,10 @@
     max-width: 100%;
     top: 0;
     left: 0;
+    right: 0;
+    margin: 0;
     border-radius: 0;
     border: none;
-    transform: none;
     border-bottom: 1px solid rgba(250, 204, 21, 0.2);
   }
 
@@ -355,10 +353,10 @@
   .navbar.collapsed {
     top: 0 !important;
     left: 0 !important;
+    right: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
     border-radius: 0 !important;
-    transform: none !important;
   }
 
   .navbar-container { padding: 0 1rem; max-width: 100%; }

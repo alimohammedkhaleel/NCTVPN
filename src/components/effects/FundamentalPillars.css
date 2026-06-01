@@ -60,7 +60,8 @@
   top: calc(12vh + (var(--card-index) * 100px));
   /* عكسنا الـ z-index: الـ cards اللي تحت (index أكبر) يكون z-index أعلى عشان الـ text يظهر فوق الـ cards اللي فوقها */
   z-index: calc(10 + var(--card-index));
-  overflow: visible;
+  /* overflow: hidden عشان الـ card تخفي أي content بيطلع من تحتها */
+  overflow: hidden;
 }
 
 .pillar-stacked-card:last-child {

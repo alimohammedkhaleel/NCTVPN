@@ -24,12 +24,24 @@ const Home = () => {
     let ctx = gsap.context(() => {
       const tl = gsap.timeline();
 
-      // 1. Navbar slides down creatively
+      // 1. Navbar slides in from top — opacity + y only, no scale/filter to avoid transform conflict
       const nav = document.querySelector('.navbar') || document.querySelector('nav');
       if (nav) {
-        gsap.fromTo(nav, 
-          { y: -50, opacity: 0, scale: 0.95, filter: 'blur(10px)' }, 
-          { y: 0, opacity: 1, scale: 1, filter: 'blur(0px)', duration: 1.5, ease: 'elastic.out(1, 0.7)', delay: 0.5 }
+        // disable CSS transitions during GSAP animation to prevent conflict
+        nav.style.transition = 'none';
+        gsap.fromTo(nav,
+          { y: -80, opacity: 0 },
+          {
+            y: 0, opacity: 1,
+            duration: 1.2,
+            ease: 'power3.out',
+            delay: 0.3,
+            clearProps: 'y,transform',
+            onComplete: () => {
+              // re-enable CSS transitions after GSAP finishes
+              nav.style.transition = '';
+            }
+          }
         );
       }
 

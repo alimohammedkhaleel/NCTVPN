@@ -182,16 +182,6 @@
   overflow: hidden;
 }
 
-.info-glass-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background: #facc15;
-}
-
 .detail-animate {
   animation: fadeInDetail 0.5s ease forwards;
 }

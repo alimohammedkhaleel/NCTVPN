@@ -20,9 +20,9 @@ export default function InfiniteMenu({ items, onItemClick, className = '' }) {
         const centerIndex = Math.floor(items.length / 2);
         const distanceFromCenter = index - centerIndex;
 
-        const tiltAngle = distanceFromCenter * (isMobile ? 10 : 20);
-        const finalX = distanceFromCenter * (isMobile ? 65 : 220);
-        const finalY = Math.abs(distanceFromCenter) * (isMobile ? 20 : 50);
+        const tiltAngle = distanceFromCenter * (isMobile ? 8 : 20);
+        const finalX = distanceFromCenter * (isMobile ? 45 : 220);
+        const finalY = Math.abs(distanceFromCenter) * (isMobile ? 15 : 50);
 
         // Initial state
         gsap.set(card, {

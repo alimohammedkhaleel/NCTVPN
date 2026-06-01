@@ -99,6 +99,8 @@
 .card-fan-section-wrapper {
   border-top: 1px solid rgba(250, 204, 21, 0.05);
   border-bottom: 1px solid rgba(250, 204, 21, 0.05);
+  overflow-x: clip;
+  width: 100%;
 }
 
 .section-title {

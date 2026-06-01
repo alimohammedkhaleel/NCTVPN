@@ -182,11 +182,3 @@
     border-right-color: var(--border);
   }
 }
-
-/* Prevent horizontal scroll on mobile devices */
-@media (max-width: 768px) {
-  html, body {
-    overflow-x: hidden;
-    max-width: 100vw;
-  }
-}

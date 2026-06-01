@@ -1,0 +1,114 @@
+.immersive-hardware-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  perspective: 1200px; /* Essential for 3D effect */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Outfit', 'Cairo', sans-serif;
+}
+
+.immersive-title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 900;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 4rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.immersive-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: 100%;
+}
+
+.immersive-card {
+  background: rgba(17, 17, 17, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(250, 204, 21, 0.15);
+  border-left: 4px solid #facc15;
+  border-radius: 16px;
+  padding: 2.5rem;
+  width: 100%;
+  transform-style: preserve-3d; /* 3D depth */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.immersive-card:hover {
+  background: rgba(17, 17, 17, 0.9);
+  border-color: rgba(250, 204, 21, 0.4);
+}
+
+.immersive-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.immersive-card-id {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #facc15;
+  background: rgba(250, 204, 21, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  letter-spacing: 1px;
+}
+
+.immersive-card-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+}
+
+.immersive-card-desc {
+  color: #a1a1aa;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.immersive-card-desc strong {
+  color: #ffffff;
+}
+
+.immersive-card-desc ul {
+  list-style-type: none;
+  padding-left: 1rem;
+}
+
+.immersive-card-desc ul li {
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.immersive-card-desc ul li::before {
+  content: '→';
+  color: #facc15;
+  position: absolute;
+  left: -1.5rem;
+}
+
+@media (max-width: 768px) {
+  .immersive-card {
+    padding: 1.5rem;
+  }
+  .immersive-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .immersive-card-id {
+    font-size: 1.5rem;
+  }
+  .immersive-card-title {
+    font-size: 1.4rem;
+  }
+}

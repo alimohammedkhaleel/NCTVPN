@@ -1,0 +1,327 @@
+.cooperation-puzzle-section {
+  position: relative;
+  width: 100%;
+  padding: 6rem 4rem;
+  background-color: #000000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Outfit', 'Cairo', sans-serif;
+  overflow: hidden;
+}
+
+.puzzle-intro {
+  text-align: center;
+  max-width: 800px;
+  margin-bottom: 4rem;
+}
+
+.puzzle-intro .badge {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #facc15;
+  letter-spacing: 3px;
+  background: rgba(250, 204, 21, 0.05);
+  border: 1px solid rgba(250, 204, 21, 0.15);
+  padding: 0.4rem 1.2rem;
+  border-radius: 50px;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.puzzle-dual-layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4rem;
+  width: 100%;
+  max-width: 1100px;
+  flex-wrap: wrap;
+}
+
+/* Left Board Container */
+.puzzle-board-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 450px;
+  max-width: 500px;
+}
+
+.puzzle-controls {
+  margin-bottom: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.puzzle-btn {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.scramble-btn {
+  background: #facc15;
+  color: #000000;
+  box-shadow: 0 4px 15px rgba(250, 204, 21, 0.3);
+}
+
+.scramble-btn:hover {
+  background: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+}
+
+.reset-btn {
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.reset-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* The Grid Board */
+.puzzle-grid-board {
+  position: relative;
+  background-color: #0c0c0c;
+  border: 4px solid #1a1a1a;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  transition: border-color 0.4s ease;
+}
+
+.puzzle-grid-board.mode-game {
+  border-color: #facc15;
+}
+
+/* Puzzle Piece */
+.puzzle-piece {
+  position: absolute;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  transition: box-shadow 0.2s ease, outline 0.2s ease, transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+  transform-origin: center center;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.puzzle-piece:hover {
+  z-index: 5;
+  box-shadow: inset 0 0 0 2px #facc15, 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.puzzle-piece.active-piece {
+  box-shadow: inset 0 0 0 3px #facc15;
+  filter: saturate(1.3) contrast(1.1);
+}
+
+.empty-piece {
+  background: transparent !important;
+  box-shadow: none !important;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.piece-number {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  padding: 2px 6px;
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+}
+
+.puzzle-hint {
+  font-size: 0.9rem;
+  color: #888888;
+  text-align: center;
+}
+
+/* Right Detail Column */
+.puzzle-info-panel {
+  flex: 1 1 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 480px;
+}
+
+.info-glass-card {
+  background: rgba(250, 204, 21, 0.01);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(250, 204, 21, 0.08);
+  border-radius: 20px;
+  padding: 2.5rem;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.info-glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: #facc15;
+}
+
+.detail-animate {
+  animation: fadeInDetail 0.5s ease forwards;
+}
+
+@keyframes fadeInDetail {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.info-num {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: rgba(250, 204, 21, 0.15);
+  line-height: 1;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.info-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.8rem;
+}
+
+.info-desc {
+  font-size: 0.95rem;
+  color: #a1a1aa;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.china-synergy-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #facc15;
+  background: rgba(250, 204, 21, 0.08);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.empty-info-state {
+  text-align: center;
+  width: 100%;
+}
+
+.empty-info-state .info-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.empty-info-state h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.6rem;
+}
+
+.empty-info-state p {
+  font-size: 0.9rem;
+  color: #666666;
+  line-height: 1.5;
+}
+
+/* KOICA Koreatech Secondary Card */
+.koica-card {
+  background: #0c0c0c;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+
+.koica-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.koica-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.koica-card:hover .koica-img {
+  transform: scale(1.08);
+}
+
+.koica-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem;
+  background: linear-gradient(transparent, rgba(0,0,0,0.9) 70%);
+  color: #ffffff;
+}
+
+.koica-overlay h4 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  margin-bottom: 0.3rem;
+  color: #facc15;
+}
+
+.koica-overlay p {
+  font-size: 0.8rem;
+  color: #cccccc;
+  line-height: 1.4;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .cooperation-puzzle-section {
+    padding: 4rem 2rem;
+  }
+  .puzzle-dual-layout {
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Scale down puzzle grid slightly on very narrow screens */
+  .puzzle-grid-board {
+    transform: scale(0.8);
+    transform-origin: center center;
+    margin-bottom: -1rem;
+  }
+}

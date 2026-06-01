@@ -1,0 +1,301 @@
+:root {
+  --bg-black: #000000;
+  --accent-yellow: #facc15;
+  --glass-bg: rgba(15, 15, 15, 0.6);
+  --glass-border: rgba(250, 204, 21, 0.15);
+}
+
+.hw-section {
+  background-color: var(--bg-black);
+  color: #ffffff;
+  position: relative;
+  padding: 6rem 0;
+  width: 100%;
+  /* High-tech precision grid background */
+  background-image: 
+    linear-gradient(rgba(250, 204, 21, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(250, 204, 21, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  overflow: hidden;
+}
+
+/* ===== HEADER ===== */
+.hw-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 5;
+  padding: 0 5%;
+}
+
+.hw-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #ffffff;
+  font-weight: 900;
+  margin-bottom: 1rem;
+}
+
+.hw-subtitle {
+  font-size: 1.2rem;
+  color: var(--accent-yellow);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* ===== MAIN LAYOUT: Full-width with fan alongside ===== */
+.hw-matrix-container {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 3rem;
+  width: 100%;
+  padding: 0 5%;
+  box-sizing: border-box;
+  align-items: stretch;
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== CARDS in a 2-column grid (2 rows) ===== */
+.hw-cards-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  width: 100%;
+}
+
+/* ===== STICKY FAN ELEMENT & TRACK ===== */
+.hw-fan-track {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.hw-fan-element {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 260px;
+  height: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.hw-fan-wrapper {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  will-change: transform;
+}
+
+/* Center core knob of the fan */
+.fan-core {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  background: radial-gradient(circle, #ffffff 0%, #ca8a04 60%, #451a03 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(234, 179, 8, 0.8);
+  z-index: 10;
+}
+
+/* Fan blades - starting as simple, classic thin gray blades */
+.fan-blade {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90px;
+  height: 6px;
+  background: #374151;
+  transform-origin: 0% 50%;
+  will-change: transform, height, border-radius, background, box-shadow;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  margin-top: -3px;
+}
+
+/* Radial angles for the 4 blades */
+.blade-1 { transform: rotate(0deg); }
+.blade-2 { transform: rotate(90deg); }
+.blade-3 { transform: rotate(180deg); }
+.blade-4 { transform: rotate(270deg); }
+
+/* ===== Elite Glassmorphism Card ===== */
+.hw-glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 10px 40px -10px rgba(0,0,0, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Hover Interaction */
+.hw-glass-card:hover {
+  border-color: rgba(250, 204, 21, 0.6);
+  box-shadow: 
+    0 15px 40px -10px rgba(0,0,0, 0.9),
+    0 0 25px rgba(250, 204, 21, 0.15),
+    inset 0 0 15px rgba(250, 204, 21, 0.05);
+}
+
+/* Laser line */
+.hw-laser {
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-yellow), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.hw-glass-card:hover .hw-laser {
+  opacity: 1;
+}
+
+/* Glow orb */
+.glow-orb {
+  position: absolute;
+  top: -50px; 
+  right: -50px;
+  width: 150px; 
+  height: 150px;
+  background: radial-gradient(circle, rgba(250, 204, 21, 0.15) 0%, transparent 70%);
+  filter: blur(20px);
+  z-index: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+}
+
+.hw-glass-card:hover .glow-orb {
+  background: radial-gradient(circle, rgba(250, 204, 21, 0.3) 0%, transparent 70%);
+  transform: scale(1.2);
+}
+
+.card-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.hw-badge {
+  display: inline-block;
+  background: rgba(250, 204, 21, 0.1);
+  color: var(--accent-yellow);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(250, 204, 21, 0.3);
+  align-self: flex-start;
+  letter-spacing: 1px;
+}
+
+.accent-text {
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+.hw-glass-card:hover .accent-text {
+  color: var(--accent-yellow);
+  text-shadow: 0 0 10px rgba(250, 204, 21, 0.3);
+}
+
+.hw-desc {
+  color: #a1a1aa;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+.hw-specs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+}
+
+.hw-spec-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: #e4e4e7;
+  font-weight: 600;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.spec-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-yellow);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent-yellow);
+  flex-shrink: 0;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .hw-matrix-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 3%;
+  }
+
+  .hw-cards-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hw-fan-track {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .hw-section {
+    padding: 5rem 0;
+  }
+
+  .hw-header {
+    padding: 0 1.5rem;
+  }
+
+  .hw-matrix-container {
+    padding: 0 1.5rem;
+  }
+
+  .hw-cards-list {
+    grid-template-columns: 1fr;
+  }
+
+  .hw-glass-card {
+    padding: 2rem 1.5rem;
+  }
+}

@@ -1,0 +1,189 @@
+.about-page {
+  position: relative;
+  background-color: #000000;
+  color: #a1a1aa;
+  min-height: 100vh;
+  font-family: 'Outfit', 'Cairo', sans-serif;
+}
+
+/* Glowing Background Spot — scoped */
+.about-page .hero-glow-spot {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70vw;
+  height: 70vw;
+  max-width: 900px;
+  max-height: 900px;
+  background: radial-gradient(circle, rgba(250, 204, 21, 0.12) 0%, rgba(0,0,0,0) 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.about-page .about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.about-page .about-header {
+  text-align: left;
+  margin-bottom: 6rem;
+  position: relative;
+  z-index: 2;
+}
+
+.about-page .accent-badge-container {
+  margin-bottom: 1.5rem;
+}
+
+.about-page .accent-badge {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #facc15;
+  letter-spacing: 3px;
+  background: rgba(250, 204, 21, 0.05);
+  border: 1px solid rgba(250, 204, 21, 0.15);
+  padding: 0.4rem 1.2rem;
+  border-radius: 50px;
+  display: inline-block;
+}
+
+.about-page .page-title {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 2.5rem;
+  text-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
+  line-height: 1.15;
+}
+
+.about-page .highlight-yellow {
+  color: #facc15;
+  text-shadow: 0 0 30px rgba(250, 204, 21, 0.25);
+}
+
+.about-page .section-subtitle {
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  font-weight: 900;
+  position: relative;
+  display: inline-block;
+}
+
+.about-page .section-subtitle::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: #facc15;
+}
+
+.about-page .section-mini-tag {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #facc15;
+  letter-spacing: 2px;
+  margin-bottom: 0.8rem;
+}
+
+.about-page .mission-scope p {
+  font-size: 1.15rem;
+  line-height: 1.85;
+  color: #a1a1aa;
+  margin-bottom: 1.8rem;
+  max-width: 950px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.about-page .mission-scope strong {
+  color: #ffffff;
+}
+
+/* Removed dead CSS for institutional-matrix and hardware-card */
+
+/* ======== PREMIUM METRICS SECTION (matches Home page) ======== */
+.about-page .about-metrics-bar {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  border-top: 1px solid rgba(250, 204, 21, 0.1);
+  border-bottom: 1px solid rgba(250, 204, 21, 0.1);
+  padding: 4rem 0;
+  margin: 4rem 0;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.about-page .about-metric-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.about-page .about-metric-box:hover {
+  transform: scale(1.08);
+}
+
+.about-page .about-metric-num {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #facc15;
+  line-height: 1;
+  text-shadow: 0 0 20px rgba(250, 204, 21, 0.3);
+  font-family: 'Outfit', sans-serif;
+}
+
+.about-page .about-metric-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #71717a;
+  letter-spacing: 1.5px;
+}
+
+@media (max-width: 1024px) {
+  .about-page .about-container {
+    padding: 0 2rem;
+  }
+  .about-page .institutional-matrix {
+    padding: 2.5rem;
+  }
+  .about-page .hardware-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .about-page .about-metrics-bar {
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-page .hero-section {
+    padding-top: 100px;
+  }
+  .about-page .about-container {
+    padding: 0 1.5rem;
+  }
+  .about-page .page-title {
+    font-size: 2rem;
+  }
+  .about-page .about-metrics-bar {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 3rem 0;
+  }
+}
+

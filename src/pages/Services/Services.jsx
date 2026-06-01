@@ -151,11 +151,11 @@ const Services = () => {
   }, []);
 
   const infiniteMenuItems = [
-    { label: 'Encrypted Tunneling', image: '/src/assets/router_device.png' },
-    { label: 'ERP Replication', image: '/src/assets/server_device.png' },
-    { label: 'VoIP Trunking', image: '/src/assets/firewall_device.png' },
-    { label: 'VLAN Segmentation', image: '/src/assets/switch_device.png' },
-    { label: 'HPC Clusters', image: '/src/assets/antenna_device.png' }
+    { label: 'Encrypted Tunneling', image: '/assets/router_device.png' },
+    { label: 'ERP Replication', image: '/assets/server_device.png' },
+    { label: 'VoIP Trunking', image: '/assets/firewall_device.png' },
+    { label: 'VLAN Segmentation', image: '/assets/switch_device.png' },
+    { label: 'HPC Clusters', image: '/assets/antenna_device.png' }
   ];
 
   const servicesData = [

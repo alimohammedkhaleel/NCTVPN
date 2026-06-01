@@ -6,11 +6,11 @@ import './ScrollCountdownGallery.css';
 gsap.registerPlugin(ScrollTrigger);
 
 const imagesData = [
-  { src: '/src/assets/Autotronics.jpg', label: 'Autotronics Network' },
-  { src: '/src/assets/Mechatronic.jpg', label: 'Mechatronics Grid' },
-  { src: '/src/assets/Petroleum engineering.jpg', label: 'Petroleum HPC' },
-  { src: '/src/assets/Renewable energy.jpg', label: 'Renewable Datacenter' },
-  { src: '/src/assets/content.jpeg', label: 'Central Core Node' }
+  { src: '/assets/Autotronics.jpg', label: 'Autotronics Network' },
+  { src: '/assets/Mechatronic.jpg', label: 'Mechatronics Grid' },
+  { src: '/assets/Petroleum engineering.jpg', label: 'Petroleum HPC' },
+  { src: '/assets/Renewable energy.jpg', label: 'Renewable Datacenter' },
+  { src: '/assets/content.jpeg', label: 'Central Core Node' }
 ];
 
 const ScrollCountdownGallery = () => {

@@ -10,31 +10,31 @@ const imagesData = [
     id: 1,
     title: 'Enterprise Router Gateway',
     desc: 'High-throughput core routing, capable of managing gigabits of encrypted traffic across the WAN with sub-millisecond switching latency.',
-    src: '/src/assets/router_device.png'
+    src: '/assets/router_device.png'
   },
   {
     id: 2,
     title: 'Secure Server Infrastructure',
     desc: 'Dedicated enterprise server racks for hosting examination databases and virtualized learning environments with high availability.',
-    src: '/src/assets/server_device.png'
+    src: '/assets/server_device.png'
   },
   {
     id: 3,
     title: 'Next-Gen Firewall',
     desc: 'Advanced threat protection and Zero-Trust Network Architecture (ZTNA) inspection for all incoming and outgoing connections.',
-    src: '/src/assets/firewall_device.png'
+    src: '/assets/firewall_device.png'
   },
   {
     id: 4,
     title: 'Core Switching Matrix',
     desc: 'High-density fiber optic switching matrix for seamless local area network connectivity within campuses.',
-    src: '/src/assets/switch_device.png'
+    src: '/assets/switch_device.png'
   },
   {
     id: 5,
     title: 'High-Speed Telecommunications',
     desc: 'Robust wireless and 5G cellular failover systems guaranteeing 99.99% uptime in the event of primary fiber disruptions.',
-    src: '/src/assets/antenna_device.png'
+    src: '/assets/antenna_device.png'
   }
 ];
 

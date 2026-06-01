@@ -151,11 +151,11 @@ const Home = () => {
   }, []);
 
   const infiniteMenuItems = [
-    { label: 'Core Routing', image: '/src/assets/router_device.png' },
-    { label: 'Datacenter', image: '/src/assets/server_device.png' },
-    { label: 'Security', image: '/src/assets/firewall_device.png' },
-    { label: 'Switching', image: '/src/assets/switch_device.png' },
-    { label: 'Wireless', image: '/src/assets/antenna_device.png' }
+    { label: 'Core Routing', image: '/assets/router_device.png' },
+    { label: 'Datacenter', image: '/assets/server_device.png' },
+    { label: 'Security', image: '/assets/firewall_device.png' },
+    { label: 'Switching', image: '/assets/switch_device.png' },
+    { label: 'Wireless', image: '/assets/antenna_device.png' }
   ];
 
   return (

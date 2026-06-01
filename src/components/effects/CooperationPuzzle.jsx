@@ -203,7 +203,7 @@ export default function CooperationPuzzle() {
                     height: `${PIECE_HEIGHT}px`,
                     left: `${(indexOnBoard % COLS) * PIECE_WIDTH}px`,
                     top: `${Math.floor(indexOnBoard / COLS) * PIECE_HEIGHT}px`,
-                    backgroundImage: isEmpty ? 'none' : `url('/src/assets/china-cooperation-protocol.jpg')`,
+                    backgroundImage: isEmpty ? 'none' : `url('/assets/china-cooperation-protocol.jpg')`,
                     backgroundPosition: `-${originalCol * PIECE_WIDTH}px -${originalRow * PIECE_HEIGHT}px`,
                     backgroundSize: `${PIECE_WIDTH * COLS}px ${PIECE_HEIGHT * ROWS}px`
                   }}
@@ -247,7 +247,7 @@ export default function CooperationPuzzle() {
           {/* Secondary Photo - KOICA Koreatech partnership */}
           <div className="koica-card">
             <div className="koica-img-wrapper">
-              <img src="/src/assets/koica-koreatech-meeting.jpg" alt="KOICA Koreatech meeting" className="koica-img" />
+              <img src="/assets/koica-koreatech-meeting.jpg" alt="KOICA Koreatech meeting" className="koica-img" />
               <div className="koica-overlay">
                 <h4>KOICA-Koreatech Assembly</h4>
                 <p>Bilateral technological partnership meeting for system accreditation.</p>

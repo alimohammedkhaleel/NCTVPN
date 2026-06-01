@@ -29,13 +29,13 @@ const Navbar = () => {
         hasAnimated.current = true;
 
         const tl = gsap.timeline();
-        gsap.set(navbarRef.current, { opacity: 0, y: -100, filter: 'blur(10px)' });
-        gsap.set(logoRef.current, { opacity: 0, x: -50, scale: 0.5 });
+        gsap.set(navbarRef.current, { opacity: 0, y: -60, filter: 'blur(8px)' });
+        gsap.set(logoRef.current, { opacity: 0, x: -30, scale: 0.8 });
         tl.to(navbarRef.current, {
-            opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.8, ease: 'elastic.out(1, 0.5)',
+            opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.6, ease: 'power3.out',
         }).to(logoRef.current, {
-            opacity: 1, x: 0, scale: 1, duration: 0.6, ease: 'back.out(1.7)',
-        }, '-=0.4');
+            opacity: 1, x: 0, scale: 1, duration: 0.4, ease: 'power2.out',
+        }, '-=0.2');
     }, []);
 
     useEffect(() => {

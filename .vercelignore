@@ -1,0 +1,46 @@
+# Dependencies
+node_modules
+
+# Testing
+coverage
+.nyc_output
+*.log
+
+# Misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.vscode
+.idea
+
+# Git
+.git
+.gitignore
+
+# Documentation
+README.md
+DEPLOYMENT_INSTRUCTIONS.md
+
+# CI/CD
+.github
+.gitlab-ci.yml
+
+# Netlify (not needed for Vercel)
+netlify.toml
+
+# Claude AI
+.claude
+
+# Tests
+tests
+test
+*.test.js
+*.spec.js
+playwright.config.js
+e2e
+
+# Development files
+src/**/*.test.jsx
+src/**/*.spec.jsx

@@ -32,10 +32,27 @@ export default defineConfig({
     // تقسيم الكود لتحميل أسرع
     rollupOptions: {
       output: {
-        manualChunks: {
-          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          'animation-vendor': ['framer-motion', 'gsap'],
-          'icons-vendor': ['lucide-react', '@fortawesome/react-fontawesome', '@fortawesome/free-solid-svg-icons'],
+        manualChunks: (id) => {
+          // React core libraries
+          if (id.includes('node_modules/react') || 
+              id.includes('node_modules/react-dom') || 
+              id.includes('node_modules/react-router-dom')) {
+            return 'react-vendor';
+          }
+          // Animation libraries
+          if (id.includes('node_modules/framer-motion') || 
+              id.includes('node_modules/gsap')) {
+            return 'animation-vendor';
+          }
+          // Icons libraries
+          if (id.includes('node_modules/lucide-react') || 
+              id.includes('node_modules/@fortawesome')) {
+            return 'icons-vendor';
+          }
+          // Other large libraries
+          if (id.includes('node_modules/canvas-confetti')) {
+            return 'effects-vendor';
+          }
         },
       },
     },

@@ -32,6 +32,18 @@ const programs = [
   }
 ];
 
+// Generate static pill shapes (initial state as circles) outside the component to keep render pure
+const staticPills = Array.from({ length: 40 }).map((_, i) => {
+  const speed = (Math.random() * 1.5 + 0.3).toFixed(2);
+  const left = Math.random() * 95;
+  const top = Math.random() * 95;
+  const width = Math.floor(Math.random() * 10) + 8; // 8px to 18px wide
+  const targetHeight = width * (Math.floor(Math.random() * 4) + 4); // 4x to 8x height (pill shape)
+  const colorType = Math.floor(Math.random() * 4);
+
+  return { id: `pill-${i}`, speed, left, top, width, targetHeight, colorType };
+});
+
 const GsapScrollParallax = () => {
   const containerRef = useRef(null);
   const sectionsRef = useRef([]);
@@ -96,17 +108,7 @@ const GsapScrollParallax = () => {
     return () => ctx.revert();
   }, []);
 
-  // Generate pill shapes (initial state as circles)
-  const pills = Array.from({ length: 40 }).map((_, i) => {
-    const speed = (Math.random() * 1.5 + 0.3).toFixed(2); 
-    const left = Math.random() * 95; 
-    const top = Math.random() * 95; 
-    const width = Math.floor(Math.random() * 10) + 8; // 8px to 18px wide
-    const targetHeight = width * (Math.floor(Math.random() * 4) + 4); // 4x to 8x height (pill shape)
-    const colorType = Math.floor(Math.random() * 4); 
-
-    return { id: `pill-${i}`, speed, left, top, width, targetHeight, colorType };
-  });
+  const pills = staticPills;
 
   return (
     <div className="programs-parallax-container" ref={containerRef}>
@@ -150,7 +152,7 @@ const GsapScrollParallax = () => {
         <div className="footer-content">
           <div className="footer-top-grid">
             <div className="footer-brand">
-              <h2>NCTU<br/>Future</h2>
+              <h2>NCTVPN<br/>Future</h2>
               <p>Leading the next generation of technological innovation and practical engineering education.</p>
             </div>
             <div className="footer-links">

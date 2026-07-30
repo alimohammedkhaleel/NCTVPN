@@ -1,12 +1,15 @@
+/* global process */
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import viteImagemin from 'vite-plugin-imagemin'
 
 // https://vite.dev/config/
+const isCI = process.env.CI === 'true' || process.env.VERCEL === '1' || process.env.NETLIFY === 'true';
+
 export default defineConfig({
   plugins: [
     react(),
-    viteImagemin({
+    !isCI && viteImagemin({
       gifsicle: { optimizationLevel: 7 },
       mozjpeg: { quality: 80 },
       pngquant: { quality: [0.8, 0.9], speed: 4 },
@@ -17,7 +20,7 @@ export default defineConfig({
         ],
       },
     }),
-  ],
+  ].filter(Boolean),
   build: {
     // تحسين حجم الـ bundle
     target: 'es2015',

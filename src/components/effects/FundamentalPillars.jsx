@@ -69,7 +69,6 @@ export default function FundamentalPillars({
           // Find "matrix" word position in heading
           const svgEl = containerRef.current.querySelector('.pillar-airplane-svg');
           const headingEl = containerRef.current.querySelector('.section-title');
-          let stopLength = length;
           let stopProgress = 1;
 
           if (svgEl && headingEl) {
@@ -90,16 +89,14 @@ export default function FundamentalPillars({
                   false
                 );
                 let node;
-                while (node = walker.nextNode()) {
+                while ((node = walker.nextNode())) {
                   textNodes.push(node);
                 }
 
-                let charCount = 0;
                 let foundStart = false;
                 let foundEnd = false;
 
                 for (let textNode of textNodes) {
-                  const nodeLength = textNode.textContent.length;
                   const nodeLower = textNode.textContent.toLowerCase();
                   const localMatrixIndex = nodeLower.indexOf('matrix');
 
@@ -110,7 +107,6 @@ export default function FundamentalPillars({
                     foundEnd = true;
                     break;
                   }
-                  charCount += nodeLength;
                 }
 
                 if (foundStart && foundEnd) {
@@ -129,8 +125,7 @@ export default function FundamentalPillars({
                     const d = dx * dx + dy * dy;
                     if (d < best.d) { best = { l, d }; }
                   }
-                  stopLength = best.l;
-                  stopProgress = Math.min(1, stopLength / length);
+                  stopProgress = Math.min(1, best.l / length);
                 }
               } catch (e) {
                 // Fallback

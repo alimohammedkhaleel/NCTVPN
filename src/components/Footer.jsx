@@ -59,7 +59,7 @@ const Footer = () => {
       <div className="footer-content">
         <h3>VPN احترافي</h3>
         <p>الشبكة القومية الموحدة للجامعات التكنولوجية بمصر | National Unified VPN Framework</p>
-        <p className="copyright">© {new Date().getFullYear()} NCTU. All rights reserved.</p>
+        <p className="copyright">© {new Date().getFullYear()} NCTVPN. All rights reserved.</p>
       </div>
     </footer>
   );

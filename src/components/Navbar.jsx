@@ -44,7 +44,7 @@ const Navbar = () => {
         >
             <div className="navbar-container">
                 <a href="/" className="logo" onClick={(e) => { e.preventDefault(); navigate('/'); }}>
-                    <span className="logo-text">NCTU</span>
+                    <span className="logo-text">NCTVPN</span>
                 </a>
 
                 <div className={`nav-user-menu ${isMenuOpen ? 'open' : ''}`}>

@@ -26,34 +26,15 @@ export default defineConfig({
       compress: {
         drop_console: true, // إزالة console.log في الـ production
         drop_debugger: true,
-        pure_funcs: ['console.log', 'console.info'], // إزالة دوال معينة
       },
     },
-    // تقسيم الكود لتحميل أسرع
+    // تقسيم تلقائي للكود
     rollupOptions: {
       output: {
-        manualChunks: (id) => {
-          // React core libraries
-          if (id.includes('node_modules/react') || 
-              id.includes('node_modules/react-dom') || 
-              id.includes('node_modules/react-router-dom')) {
-            return 'react-vendor';
-          }
-          // Animation libraries
-          if (id.includes('node_modules/framer-motion') || 
-              id.includes('node_modules/gsap')) {
-            return 'animation-vendor';
-          }
-          // Icons libraries
-          if (id.includes('node_modules/lucide-react') || 
-              id.includes('node_modules/@fortawesome')) {
-            return 'icons-vendor';
-          }
-          // Other large libraries
-          if (id.includes('node_modules/canvas-confetti')) {
-            return 'effects-vendor';
-          }
-        },
+        // تقسيم تلقائي بناءً على حجم الملفات
+        chunkFileNames: 'assets/js/[name]-[hash].js',
+        entryFileNames: 'assets/js/[name]-[hash].js',
+        assetFileNames: 'assets/[ext]/[name]-[hash].[ext]',
       },
     },
     // ضغط الملفات
